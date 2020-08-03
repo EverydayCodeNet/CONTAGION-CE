@@ -5,12 +5,12 @@ Contagion CE is a Plague Inc. inspired game written in C for the TI-84 Plus CE c
 1. Download the latest release of [CONTAGION CE](https://github.com/EverydayCodeNet/CONTAGION-CE/releases)
 2. Unzip these files to your desktop.
 
-If you have a physical TI-84 Plus CE or TI-83 Premium CE.
-3. Download [TI-Connect CE](https://education.ti.com/en/software/details/en/CA9C74CAD02440A69FDC7189D7E1B6C2/swticonnectcesoftware).
-4. Connect your calculator to your computer via USB.
-5. Go to the File Explorer tab in TI-Connect CE and drag and drop these files.
+**If you have a physical TI-84 Plus CE or TI-83 Premium CE.**\
+3. Download [TI-Connect CE](https://education.ti.com/en/software/details/en/CA9C74CAD02440A69FDC7189D7E1B6C2/swticonnectcesoftware).\
+4. Connect your calculator to your computer via USB.\
+5. Go to the File Explorer tab in TI-Connect CE and drag and drop these files.\
 
-If you're using an emulator [TI-Smartview CE](https://education.ti.com/en/software/details/en/BE8220257AA241148986628D6EE332E5/ti-smartview-ce-for-ti-84-plus-family).
+**If you're using an emulator ([TI-Smartview CE](https://education.ti.com/en/software/details/en/BE8220257AA241148986628D6EE332E5/ti-smartview-ce-for-ti-84-plus-family)).**\
 3. Go to the File Explorer tab and drag and drop the files to your calculator.
 
 ## Screenshots
