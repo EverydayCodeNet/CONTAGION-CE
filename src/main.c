@@ -440,26 +440,14 @@ void MutationMenu() {
 }
 
 void Progress(void) {
-    uint8_t i;
-    int totalInfected;
-    int totalDead;
-    char str1[40];
-    //there's probably a better way to get total infected, but this will work for now
-    int r0infected,r1infected,r2infected,r3infected,r4infected,r5infected,r6infected;
-    int r0dead,r1dead,r2dead,r3dead,r4dead,r5dead,r6dead;
-    for (i = 0; i < 7; i++) {
-        region_t *r = &region[i];
-        if (i == 0) r0infected = r->squaresinfected; r0dead = r->squaresdead;
-        if (i == 1) r1infected = r->squaresinfected; r1dead = r->squaresdead;
-        if (i == 2) r2infected = r->squaresinfected; r2dead = r->squaresdead;
-        if (i == 3) r3infected = r->squaresinfected; r3dead = r->squaresdead;
-        if (i == 4) r4infected = r->squaresinfected; r4dead = r->squaresdead;
-        if (i == 5) r5infected = r->squaresinfected; r5dead = r->squaresdead;
-        if (i == 6) r6infected = r->squaresinfected; r6dead = r->squaresdead;
+    int totalInfected = 0;
+    int totalDead = 0;
 
-        totalInfected = r0infected + r1infected + r2infected + r3infected + r4infected + r5infected + r6infected;
-        totalDead = r0dead + r1dead + r2dead + r3dead + r4dead + r5dead + r6dead;
+    for (int i = 0; i < 7; i++) {
+        totalInfected += region[i].squaresinfected;
+        totalDead += region[i].squaresdead;
     }
+
     game.vVictory = (totalInfected * 100 / 4410);
     //not working
     game.totaldead = (totalDead * 100 / 4410);
@@ -863,7 +851,7 @@ void main(void) {
     keypressed = 3;
     x = randInt(0, 160);
     y = randInt(0, 120);
-    
+
     while (keypressed != 2) {
         keypressed = MainMenu();
         //because I am tired of the memory management menu
