@@ -1,6 +1,8 @@
-//OPTIX version 2
+//OPTIX version 2 by epsilon5
 //an open source GUI/text library in C for the TI-84 Plus CE and TI-83 Premium CE calculators
 //please credit when used
+//contact: https://www.cemetech.net/downloads/users/epsilon5
+
 
 #include <tice.h>
 #include "optix.h"
