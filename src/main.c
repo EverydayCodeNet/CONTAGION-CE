@@ -6,8 +6,8 @@
 ////////////////////////////////////////
 
 //for the sprites
-#include "sprites.h"
-#include "optix.h"
+#include "sprites/sprites.h"
+#include "sprites/optix.h"
 /* Keep these headers */
 #include <tice.h>
 
