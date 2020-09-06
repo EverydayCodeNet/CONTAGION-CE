@@ -7,6 +7,8 @@
 
 //for the sprites
 #include "sprites/sprites.h"
+
+//OPTIX Graphics Libraries by epsilon5, stable release not available. Contact epsilon5 @ https://www.cemetech.net/downloads/users/epsilon5.
 #include "sprites/optix.h"
 /* Keep these headers */
 #include <tice.h>
