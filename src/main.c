@@ -1,5 +1,5 @@
  ////////////////////////////////////////
-// {Pandemic CE} {0.0.1}
+// Contagion CE (1.0.0)
 // Author: epsilon5, EverydayCode
 // License: NA
 // Description: Plague, Inc. like game for the TI-84 Plus CE
@@ -244,7 +244,6 @@ void UpdateNews(int vVictory, int wVictory) {
             SetNews(str1);
         }
     }
-
     gfx_SetTextScale(1,1);
 }
 
@@ -271,43 +270,7 @@ void MutationMenu() {
     uint8_t titlewidth = 12;
     char temp[2] = " ";
     bool enterpressed;
-    /*numlines = optix_AddMenu(0, 0, 0, 0, 0, 0, 0, 0, entries, NULL);
-    if (numlines < maxlines) maxlines = numlines;
-    optix_DeleteLastMenu();
-    currline = 0;
-    currentselection = 0;
-    enterpressed = false;
-    xprint = 160 - width / 2;
-    yprint = 120 - (titlewidth + maxlines * textspacing) / 2;
-    optix_AddMenu(xprint, yprint + titlewidth, 0, 0, 1, numlines, 100, textspacing, entries, NULL);
-    optix_guidata.currmenu = optix_guidata.nummenus - 1;
-    m = &optix_menu[optix_guidata.currmenu];
-    while (kb_AnyKey()) kb_Scan();
-    while ((!m->enterpressed) || (kb_Data[6] & kb_Enter) || (kb_Data[1] & kb_2nd)) {
-        optix_UpdateCurrMenu();
-        gfx_SetColor(optix_guicolors.colora);
-        gfx_FillRectangle(xprint - 1, yprint + titlewidth - 1, width + 2, maxlines * textspacing + 2);
-        gfx_SetColor(optix_guicolors.colorb);
-        gfx_Rectangle(xprint - 1, yprint + titlewidth - 1, width + 2, maxlines * textspacing + 2);
-        //gfx_Rectangle(xprint + 1, yprint + titlewidth + 1, (width + 2 * padding) - 2, (maxlines * textspacing + (2 * padding)) - 2);
-        //make some triangles (not now though, they're a little off and I like the box better)
-        //gfx_FillTriangle(xprint - 5, yprint - 5 + textspacing, xprint - 5 + textspacing, yprint - 5 + textspacing, xprint - 5 + textspacing, yprint - 5);
-        //gfx_FillTriangle(xprint - 5 + width, yprint - 5 + textspacing, xprint - 5 + width - textspacing, yprint - 5 + textspacing, xprint - 5 + width - textspacing, yprint - 5);
-        gfx_FillRectangle(xprint - 1, yprint - 1, width + 2, titlewidth);
-        optix_CusText(true);
-        gfx_PrintStringXY(title, 160 - gfx_GetStringWidth(title) / 2, yprint + (titlewidth / 2 - 4));
-        //indicate that scrolling can be done if applicable
-        if (numlines > maxlines) {
-            if (m->menumin > 0 && m->menumin < m->numoptions - maxlines) temp[0] = 18;
-            else if (m->menumin > 0) temp[0] = 24;
-            else if (m->menumin < m->numoptions - maxlines) temp[0] = 25;
-            gfx_PrintStringXY(temp, xprint + width - gfx_GetStringWidth(temp), yprint + (titlewidth / 2 - 4));
-        }
-        optix_RenderMenu(optix_guidata.currmenu);
-        gfx_SwapDraw();
-    }
-    optix_DeleteLastMenu();*/
-    //gfx_SetDrawBuffer();
+    
     do {
         kb_Scan();
 
@@ -365,7 +328,6 @@ void MutationMenu() {
             game.dnapoints = game.dnapoints - cost;
         }
     } while(kb_Data[6] != kb_Enter || kb_Data[6] != kb_Graph);
-
 }
 
 void Progress(void) {
@@ -475,10 +437,6 @@ void UpdateSimulation(void) {
         for (y = 0; y < r->spr->height; y++) {
             if (r->data[y * r->spr->width + x] == 224) {
                 //kill (eventually based on virus lethality, 0-100)
-                /*if (randInt(0, 100 - 100) == 0) {
-                    r->data[y * r->spr->width + x] = 0;
-                    continue;
-                }*/
                 //infect randomly based on probability of infection, in a random direction
                 //increase prob infection with dna points
                 if (randInt(0,10 - virus.vSpeed) == 0) {
@@ -537,22 +495,9 @@ void UpdateTransportation(void) {
 void HandleKeys(void) {
     kb_Scan();
     if (!kb_AnyKey()) game.canpress = true;
-    //if (kb_Data[1] == kb_Graph) game.mutate = true;
-    /*if ((kb_Data[1] & kb_Yequ) && (game.selected > 0) && (game.canpress)) {
-        game.selected--;
-        game.canpress = false;
-    }
-    if ((kb_Data[1] & kb_Graph) && (game.selected < 6) && (game.canpress)) {
-        game.selected++;
-        game.canpress = false;
-    }*/
+
     if (game.viewmode == 0) UpdateSelectedRegion();
-    //if ((kb_Data[7] & kb_Left) && (game.cursorx > 0)) game.cursorx--;
-    //if ((kb_Data[7] & kb_Right) && (game.cursorx < 160)) game.cursorx++;
-    //if ((kb_Data[7] & kb_Up) && (game.cursory > 0)) game.cursory--;
-    //dont go off screen - rework later
-    //if ((kb_Data[7] & kb_Down) && (game.cursory < 200)) game.cursory++;
-    //if (kb_Data[6] & kb_Enter) InfectCoordinate(game.cursorx, game.cursory);
+
     if (kb_Data[1] & kb_Mode && game.canpress) {
         game.viewmode++;
         if (game.viewmode > 1) game.viewmode = 0;
